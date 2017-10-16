@@ -68,7 +68,8 @@ class cvBridge():
         # Publish the processed image
         try:
             publishing_image = self.bridge.cv2_to_imgmsg(
-                postprocessing_image, "bgr8")
+                postprocessing_image, "rgb8") # publish as rgb8 instead
+                #postprocessing_image, "bgr8")
             self.image_pub.publish(publishing_image)
         except CvBridgeError as e:
             print(e)
